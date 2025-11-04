@@ -1,9 +1,11 @@
+
+/*styles.css*/
 :root {
     --primary: #0011cf;
     --primary-dark: #000d97;
     --secondary: #0012dd;
     --accent: #0b0404;
-    --amber: #000000;
+    --amber: #821504;
     /* Text color for light theme */
     --dark: #0f172a;
     /* Surface and subtle darker shades for cards/accents */
@@ -11,6 +13,13 @@
     --light: #ffffff;
     --muted: #64748b;
     --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    
+    --hero-top-spacing: 300px;
+    --hero-left-spacing: 100px;
+    --title-max-width: 600px;
+    --paragraph-max-width: 1000px;
+    --quote-max-width: 550px;
 }
 
 * {
@@ -69,30 +78,31 @@ nav.scrolled {
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 250px;
 }
 
 .logo-image {
-    width: 40px;
-    height: 40px;
-    background: rgba(37, 99, 235, 0.1);
-    border-radius: 8px;
+    width: auto; /* 改为自动宽度适应长方形 */
+    height: 50px; /* 保持高度 */
+    background: none; /* 去掉背景 */
+    border-radius: 0; /* 去掉圆角 */
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--primary);
     font-size: 1.2rem;
-    border: 2px dashed rgba(37, 99, 235, 0.3);
+    overflow: hidden; /* 防止图片溢出 */
 }
 
-.logo-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+/* 添加图片样式 */
+.logo-image img {
+    height: 100%; /* 高度充满容器 */
+    width: auto; /* 宽度自动保持比例 */
+    object-fit: contain; /* 保持图片比例 */
+    display: block;
 }
+
+
 
 .nav-links {
     display: flex;
@@ -150,48 +160,60 @@ nav.scrolled {
     transform: translateY(-2px);
 }
 
-/* Hero Section - 修改这里让内容更靠左和靠上 */
 /* Hero Section - 完全左对齐 */
 .hero {
     text-align: left;
+    display: flex;
+    align-items: flex-start; /* 改为 flex-start 而不是 center */
+    min-height: 100vh; /* 保持全屏高度 */
+    padding-top: var(--hero-top-spacing);
+    padding-left: var(--hero-left-spacing);
 }
 
 .hero .container {
     max-width: 100%;
     margin: 0;
     padding: 0 20px;
+    text-align: left;
+    align-self: flex-start; /* 容器自身也靠上 */
+    margin-top: 0; /* 移除可能的顶部外边距 */
 }
 
 .hero-content {
-    max-width: 100%;
+    max-width: 1600px;
     margin: 0;
     padding: 0;
     text-align: left;
+    width: 200%;
 }
 
 .hero h1.highlight-title {
     text-align: left;
     margin-left: 0;
+    padding-left: 1000;
+    max-width: var(--title-max-width);
+    word-wrap: break-word; /* 单词换行方式 */
+    line-height: 1.2; /* 行高 */
 }
 
 .hero p {
     text-align: left;
     margin-left: 0;
+    padding-left: 0;/* 让内容更靠右 */
 }
 
 .hero-cta {
     justify-content: flex-start;
     margin-left: 0;
+    padding-left: 0;
 }
 
-/* 如果需要更极致的左对齐，可以添加这个 */
+/* 确保 hero 内容从顶部开始 */
 .hero .container {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.hero-content {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 改为 flex-start */
+    padding-top: 60px; /* 如果需要更多顶部空间可以调整这个值 */
 }
 
 /* Amber Text */
@@ -208,13 +230,14 @@ nav.scrolled {
     margin-bottom: 20px;
     font-style: italic;
     text-align: left;
+    max-width: var(--quote-max-width);
 }
 
 .hero p {
     font-size: 1.5rem;
     color: var(--muted);
     margin-bottom: 40px;
-    max-width: 600px;
+    max-width: var(--paragraph-max-width);
     text-align: left;
 }
 
