@@ -1,7 +1,7 @@
 
 /*styles.css*/
 :root {
-    --primary: #0011cf;
+    --primary: #000000;
     --primary-dark: #000d97;
     --secondary: #0012dd;
     --accent: #0b0404;
@@ -72,18 +72,19 @@ nav.scrolled {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 10px;
 }
 
 /* Updated Logo with image spot */
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 250px;
+    gap: 200px;
 }
 
 .logo-image {
     width: auto; /* 改为自动宽度适应长方形 */
-    height: 50px; /* 保持高度 */
+    height: 40px; /* 保持高度 */
     background: none; /* 去掉背景 */
     border-radius: 0; /* 去掉圆角 */
     display: flex;
@@ -92,6 +93,7 @@ nav.scrolled {
     color: var(--primary);
     font-size: 1.2rem;
     overflow: hidden; /* 防止图片溢出 */
+    margin-left: -10px;
 }
 
 /* 添加图片样式 */
@@ -106,7 +108,7 @@ nav.scrolled {
 
 .nav-links {
     display: flex;
-    gap: 32px;
+    gap: 70px;
     align-items: center;
 }
 
