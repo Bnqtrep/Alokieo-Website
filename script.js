@@ -27,8 +27,8 @@ AOS.init({
                 // Redirect to Chinese page
                 window.location.replace('index-zh.html');
             } else if (detected === 'en' && !onEn) {
-                // Redirect to English page
-                window.location.replace('index-en.html');
+                // Redirect to canonical English page (use index.html)
+                window.location.replace('index.html');
             }
         }
     } catch (e) {
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const href = (this.getAttribute('href') || '').toLowerCase();
                 if (href.includes('index-zh')) {
                     localStorage.setItem(LS_KEY, 'zh');
-                } else if (href.includes('index-en')) {
+                } else if (href.includes('index-en') || href.includes('index.html')) {
                     localStorage.setItem(LS_KEY, 'en');
                 }
             });
