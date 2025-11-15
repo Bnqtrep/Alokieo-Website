@@ -67,26 +67,6 @@ window.addEventListener('scroll', function() {
 });
 
 
-// Join buttons interaction
-document.querySelectorAll('.join-option .btn').forEach(button => {
-    button.addEventListener('click', function(e) {
-        e.preventDefault();
-        const option = this.closest('.join-option');
-        const optionName = option.querySelector('h3').textContent;
-        
-        // Show loading state
-        const originalText = this.textContent;
-        this.textContent = 'Redirecting...';
-        this.disabled = true;
-        
-        // Simulate redirect delay
-        setTimeout(() => {
-            alert(`You're joining: ${optionName}\nThis would normally redirect to our ${optionName} page!`);
-            this.textContent = originalText;
-            this.disabled = false;
-        }, 1000);
-    });
-});
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
